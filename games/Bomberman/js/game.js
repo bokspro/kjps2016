@@ -426,6 +426,11 @@ window.onload = function(){
 																										for (var l=0;l<ex.length;l++)
 																									{
 																									
+																										if (isCollision(char_sekotajs,ex[l], offsets1) &&  isCollision(char_sekotajs2,ex[l], offsets2))
+																										{
+																											GameOver(3);
+																											break;
+																										}
 																										if (isCollision(char_sekotajs,ex[l], offsets1))
 																										{
 																											GameOver(1);
@@ -794,9 +799,14 @@ window.onload = function(){
 			var gameovertext=text(32, 190, "Player 1 Won", {'font' : '64px arial', 'fill' : '#FF8000', 'strokeThickness' : '5', 'dropShadow' : 'true'/*, 'dropShadowDistance' : ''*/})
 			gameovertext.zindex=1000;
 		}
-		else
+		if (kurs==1)
 		{
 			var gameovertext=text(32, 190, "Player 2 Won", {'font' : '64px arial', 'fill' : '#FF8000', 'strokeThickness' : '5', 'dropShadow' : 'true'/*, 'dropShadowDistance' : ''*/})
+			gameovertext.zindex=1000;
+		}
+		if (kurs==3)
+		{
+			var gameovertext=text(140, 190, "Draw", {'font' : '64px arial', 'fill' : '#FF8000', 'strokeThickness' : '5', 'dropShadow' : 'true'/*, 'dropShadowDistance' : ''*/})
 			gameovertext.zindex=1000;
 		}
 		var reset = image(205, 270, "image/restart.png");
